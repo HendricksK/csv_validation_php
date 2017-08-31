@@ -6,8 +6,10 @@ include_once(DIRNAME(__FILE__) . '../controller/class.filevalidation.php');
 $filePath = 'hereliesafile.csv';
 
 $fileOperator = new fileOperator();
-$csvFile = $fileOperator->openFile($filePath);
+$finalResponse = $fileOperator->runThroughCSV($filePath, 1);
 
-var_dump($csvFile);
-var_dump($fileOperator->readFile($csvFile, $filePath));
+echo 'Final sum of the final row ' . $finalResponse . '<br>';
 
+$HighestResponse = $fileOperator->runThroughCSV($filePath, 1);
+
+echo 'Bonus, highest value when the building the sum of column 2 and 3 ' . $finalResponse;
